@@ -7,7 +7,9 @@ export default function Card() {
       <div className="card-body">
         <Weather />
       </div>
-      <a href="https://github.com/BanzEM/my-app.git">GitHub Url</a>
+      <a href="https://github.com/BanzEM/my-app.git" target="blank">
+        GitHub Url
+      </a>
     </div>
   );
 }
