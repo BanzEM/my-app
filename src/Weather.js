@@ -12,8 +12,6 @@ export default function Weather() {
       wind: response.data.wind.speed,
       icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
-    //alert(response.data.main.temp);
-    //console.log(response.data);
   }
 
   function handleSubmit(event) {
