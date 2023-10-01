@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Card from "./Card";
 
 export default function Weather() {
-  let [city, setCity] = useState("");
-  let [temperature, setTemperature] = useState("");
+  let [city, setCity] = useState("props.defaultCity");
+  let [temperature, setTemperature] = useState("props.defaultCity");
 
   function showTemperature(response) {
     setTemperature({
+      city: response.data.name,
+      description: response.data.weather[0].description,
       Temperature: response.data.main.temp,
       Humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -39,14 +42,24 @@ export default function Weather() {
     return (
       <div>
         {form}
-        <ul>
-          <li>Temperature:{Math.round(temperature.Temperature)} °C</li>
-          <li> Wind:{temperature.wind} km/h</li>
-          <li>Humidity:{temperature.Humidity}</li>
-          <li>
-            <img src={temperature.icon} alt="icon" />
-          </li>
-        </ul>
+        <h1>{temperature.city}</h1>
+        <div>{temperature.description}</div>
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <img src={temperature.icon} alt="icon" />
+              <span>
+                <Card celsius={temperature.Temperature} />
+              </span>
+            </div>
+            <div className="col-6">
+              <ul>
+                <li> Wind:{temperature.wind} km/h</li>
+                <li>Humidity:{temperature.Humidity}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     );
   } else {

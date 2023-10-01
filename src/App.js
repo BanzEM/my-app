@@ -7,10 +7,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Card>
-          <Weather />
-        </Card>
+        <Weather defaultCity="Cape Town" />
       </header>
+      <a href="https://github.com/BanzEM/my-app.git" target="blank">
+        GitHub Url
+      </a>
     </div>
   );
 }
