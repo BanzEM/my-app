@@ -11,6 +11,7 @@ export default function Card(props) {
 
   function convertToCelsius(event) {
     event.preventDefault();
+    setUnit("celsius");
   }
 
   if (unit === "celsius") {
@@ -32,7 +33,6 @@ export default function Card(props) {
       <div className="card">
         <span> {Math.round(fahrenheit)}</span>
         <span className="unit">
-          {" "}
           <a href="/" onClick={convertToCelsius}>
             °C
           </a>{" "}

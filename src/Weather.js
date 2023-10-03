@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
 
-export default function Weather() {
-  let [city, setCity] = useState("props.defaultCity");
+export default function Weather(props) {
+  let [city, setCity] = useState(props.defaultCity);
   let [temperature, setTemperature] = useState("props.defaultCity");
 
   function showTemperature(response) {
