@@ -4,10 +4,11 @@ import Card from "./Card";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
-  let [temperature, setTemperature] = useState("props.defaultCity");
+  let [temperature, setTemperature] = useState({ ready: false });
 
   function showTemperature(response) {
     setTemperature({
+      ready: true,
       city: response.data.name,
       description: response.data.weather[0].description,
       Temperature: response.data.main.temp,
@@ -17,12 +18,16 @@ export default function Weather(props) {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function search() {
     let apikey = "a63e0c69093b1d4e3df9e98b9a64478b";
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=${units}`;
     axios.get(apiUrl).then(showTemperature);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
   }
 
   function updateCity(event) {
@@ -38,7 +43,7 @@ export default function Weather(props) {
     </div>
   );
 
-  if (temperature) {
+  if (temperature.ready) {
     return (
       <div>
         {form}
@@ -63,6 +68,12 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    return form;
+    search();
+
+    return (
+      <div>
+        {form} <div>Loading ....</div>
+      </div>
+    );
   }
 }

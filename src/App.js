@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Weather defaultCity="Lisbon" />
+        <Weather defaultCity="Cape Town" />
       </header>
       <a href="https://github.com/BanzEM/my-app.git" target="blank">
         GitHub Url
