@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import "./Weather.css";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -45,7 +46,7 @@ export default function Weather(props) {
 
   if (temperature.ready) {
     return (
-      <div>
+      <div className="weather">
         {form}
         <h1>{temperature.city}</h1>
         <div>{temperature.description}</div>

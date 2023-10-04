@@ -8,9 +8,12 @@ function App() {
       <header className="App-header">
         <Weather defaultCity="Cape Town" />
       </header>
-      <a href="https://github.com/BanzEM/my-app.git" target="blank">
-        GitHub Url
-      </a>
+      <div>
+        This project is coded by Bandisile Mazomba and is open-sourced on
+        <a href="https://github.com/BanzEM/my-app.git" target="blank">
+          {""} GitHub
+        </a>
+      </div>
     </div>
   );
 }
