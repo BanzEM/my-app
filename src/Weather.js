@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
 import "./Weather.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Weather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -15,7 +16,7 @@ export default function Weather(props) {
       Temperature: response.data.main.temp,
       Humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -53,7 +54,8 @@ export default function Weather(props) {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <img src={temperature.icon} alt="icon" />
+              <WeatherIcon code={temperature.icon} />
+
               <span>
                 <Card celsius={temperature.Temperature} />
               </span>
