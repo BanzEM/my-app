@@ -12,6 +12,7 @@ export default function Weather(props) {
   function showTemperature(response) {
     setTemperature({
       ready: true,
+      coord: response.data.coord,
       city: response.data.name,
       description: response.data.weather[0].description,
       Temperature: response.data.main.temp,
@@ -69,7 +70,7 @@ export default function Weather(props) {
             </div>
           </div>
         </div>
-        <DailyForecast />
+        <DailyForecast coordinates={temperature.coord} />
       </div>
     );
   } else {
