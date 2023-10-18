@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import DailyForecast from "./DailyForecast";
 import "./Weather.css";
 import WeatherIcon from "./WeatherIcon";
 
@@ -54,7 +55,7 @@ export default function Weather(props) {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <WeatherIcon code={temperature.icon} />
+              <WeatherIcon code={temperature.icon} size={64} />
 
               <span>
                 <Card celsius={temperature.Temperature} />
@@ -68,6 +69,7 @@ export default function Weather(props) {
             </div>
           </div>
         </div>
+        <DailyForecast />
       </div>
     );
   } else {
