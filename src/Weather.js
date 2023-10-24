@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Card from "./Card";
+import Datedisplay from "./Datedisplay";
 import DailyForecast from "./DailyForecast";
 import "./Weather.css";
 import WeatherIcon from "./WeatherIcon";
@@ -19,6 +20,7 @@ export default function Weather(props) {
       Humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -28,8 +30,6 @@ export default function Weather(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=${units}`;
     axios.get(apiUrl).then(showTemperature);
   }
-
-  
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -54,6 +54,9 @@ export default function Weather(props) {
       <div className="weather">
         {form}
         <h1>{temperature.city}</h1>
+        <div>
+          <Datedisplay date={temperature.date} />
+        </div>
         <div>{temperature.description}</div>
         <div className="container">
           <div className="row">
