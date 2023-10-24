@@ -61,7 +61,7 @@ export default function Weather(props) {
         <div className="container">
           <div className="row">
             <div className="col-6">
-              <WeatherIcon code={temperature.icon} size={64} />
+              <WeatherIcon code={temperature.icon} size={94} />
 
               <span>
                 <Card celsius={temperature.Temperature} />
