@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "./Card.css";
 
 export default function Card(props) {
   const [unit, setUnit] = useState("celsius");
@@ -17,7 +18,7 @@ export default function Card(props) {
   if (unit === "celsius") {
     return (
       <div className="card">
-        <span> {Math.round(props.celsius)}</span>
+        <span className="mainTemperature"> {Math.round(props.celsius)}</span>
         <span className="unit">
           {" "}
           °C|

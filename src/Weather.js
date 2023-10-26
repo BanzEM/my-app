@@ -43,7 +43,12 @@ export default function Weather(props) {
   let form = (
     <div className="weather-Input">
       <form onSubmit={handleSubmit}>
-        <input type="search" placeholder="Enter City" onChange={updateCity} />
+        <input
+          className="cityName"
+          type="search"
+          placeholder="Enter City"
+          onChange={updateCity}
+        />
         <button>search</button>
       </form>
     </div>
@@ -57,7 +62,7 @@ export default function Weather(props) {
         <div>
           <Datedisplay date={temperature.date} />
         </div>
-        <div>{temperature.description}</div>
+        <h4>{temperature.description}</h4>
         <div className="container">
           <div className="row">
             <div className="col-6">
@@ -69,8 +74,20 @@ export default function Weather(props) {
             </div>
             <div className="col-6">
               <ul>
-                <li> Wind:{temperature.wind} km/h</li>
-                <li>Humidity:{temperature.Humidity}</li>
+                <li>
+                  {" "}
+                  <h5 className="wind">
+                    {" "}
+                    Wind:{""} {temperature.wind} km/h
+                  </h5>
+                </li>
+                <li>
+                  {" "}
+                  <h5 className="humidity">
+                    {" "}
+                    Humidity:{""} {temperature.Humidity} %
+                  </h5>
+                </li>
               </ul>
             </div>
           </div>

@@ -23,7 +23,17 @@ export default function Datedisplay(props) {
   }
   return (
     <div>
-      {day} {hours}:{minutes}
+      <div className="row">
+        <div className="col-6">
+          <h3>{day}</h3>
+        </div>
+
+        <div className="col-6">
+          <h3>
+            {hours}:{minutes}
+          </h3>
+        </div>
+      </div>
     </div>
   );
 }

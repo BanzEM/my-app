@@ -2,3 +2,24 @@
   border: solid black;
   padding: 70px;
 }
+
+li {
+  list-style: none;
+  text-align: left;
+}
+
+.wind {
+  padding-bottom: 20px;
+  padding-top: 5px;
+}
+
+.cityName {
+  margin-right: 20px;
+  padding-left: 200px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+button {
+  border-radius: 5px;
+}
