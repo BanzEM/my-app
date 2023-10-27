@@ -1,0 +1,10 @@
+.forecast-min {
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.forecast-max {
+  font-size: 18px;
+  font-weight: bolder;
+}
