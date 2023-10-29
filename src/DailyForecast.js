@@ -13,7 +13,7 @@ export default function DailyForecast(props) {
   }
 
   useEffect(() => {
-    setloaded(false);
+    setloaded(true);
   }, [props.coordinates]);
 
   if (loaded) {
