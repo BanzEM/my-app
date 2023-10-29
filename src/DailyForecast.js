@@ -5,16 +5,16 @@ import ForecastDay from "./ForecastDay";
 
 export default function DailyForecast(props) {
   let [loaded, setloaded] = useState(false);
-  let [forecastData, setforecastData] = useState("");
+  let [forecastData, setforecastData] = useState(null);
+
+  useEffect(() => {
+    setloaded(false);
+  }, [props.coordinates]);
 
   function showForecast(response) {
     setforecastData(response.data.daily);
     setloaded(true);
   }
-
-  useEffect(() => {
-    setloaded(true);
-  }, [props.coordinates]);
 
   if (loaded) {
     return (
@@ -27,6 +27,8 @@ export default function DailyForecast(props) {
                   <ForecastDay daysData={nextDayForecast} />
                 </div>
               );
+            } else {
+              return null;
             }
           })}
         </div>
@@ -39,5 +41,6 @@ export default function DailyForecast(props) {
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=${units}`;
     axios.get(apiUrl).then(showForecast);
+    return null;
   }
 }
